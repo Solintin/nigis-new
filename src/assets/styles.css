@@ -1,0 +1,10 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+
+.wave {
+    @apply absolute w-full bg-opacity-0 h-full top-0 left-0 duration-500 bg-white -skew-x-12 group-hover:bg-opacity-70 transform group-hover:translate-x-[150%];
+}
