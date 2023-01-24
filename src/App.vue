@@ -11,15 +11,15 @@
 
 export default {
   name: "App",
+
   data() {
     return {
       isFormPage: false,
     };
   },
   methods: {
-    showFormPage() {
-      this.isFormPage = !this.isFormPage;
-    },
+
+   
   },
 };
 </script>

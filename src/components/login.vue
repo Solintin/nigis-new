@@ -9,18 +9,26 @@
         <img class="mx-auto w-16 h-16" src="./nigislogo.png" alt="nigislogo" />
 
         <div class="block p-3 space-y-3 rounded-xl border-2">
-          <h3 class="text-xl text-center font-semibold p-4">Log in</h3>
+          <h3 class="sm:text-xl text-lg text-center font-semibold p-4">Log in</h3>
 
           <div class="space-y-3">
             <div
               class="form-group space-y-3"
               :class="{ 'form-group--error': $v.email.$error }"
             >
-              <label class="block font-thin text-lg text-zinc-800" for="email"
+              <label
+                class="block font-thin text-sm sm:text-lg text-zinc-800"
+                for="email"
+                :class="
+                  !$v.email.required && $v.email.$dirty ? 'text-red-600' : ''
+                "
                 ><b>Enter Your Email Address</b></label
               >
               <input
                 @change="handleUpdate(email, $event)"
+                :class="
+                  !$v.email.required && $v.email.$dirty ? 'text-red-600' : ''
+                "
                 class="block form__input input-field"
                 type="email"
                 placeholder="Enter email address..."
@@ -38,8 +46,13 @@
               :class="{ 'form-group--error': $v.password.$error }"
             >
               <label
-                class="block form__label font-thin text-lg text-zinc-800"
+                class="block form__label font-thin text-sm sm:text-lg text-zinc-800"
                 for="password"
+                :class="
+                  !$v.password.required && $v.password.$dirty
+                    ? 'border-red-600'
+                    : ''
+                "
                 ><b>Enter Your Password</b></label
               >
               <input
@@ -167,7 +180,7 @@ body {
 }
 
 .input-field {
-  @apply border-2  focus:border-green-700 rounded-2xl focus:outline-none w-full h-10 px-2;
+  @apply border-2  focus:border-green-700 hover:border-green-700 rounded-2xl focus:outline-none w-full h-10 px-2;
 }
 .error {
   @apply text-red-600;

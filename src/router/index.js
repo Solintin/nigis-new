@@ -4,6 +4,7 @@ import VueRouter from "vue-router";
 import LoginPage from "@/views/loginview.vue";
 import Register from  "@/views/registerview.vue";
 import FormPage from "@/views/form.vue";
+import TrackerPage from "@/views/tracker.vue";
 
 
 
@@ -27,6 +28,12 @@ const routes = [
     component: FormPage,
    
   },
+  {
+    path: "/tracker",
+    name: "TrackerPage",
+    component: TrackerPage,
+
+  }
 ];
 
 const router = new VueRouter({
