@@ -1,7 +1,7 @@
 <!-- eslint-disable -->
 <template>
   <div
-    class="w-full h-full text-sm sm:text-lg inset-0 absolute bg-white overflow-auto p-2 sm:p-6"
+    class="w-full h-full text-sm sm:text-lg inset-0 fixed bg-white overflow-auto p-2 sm:p-6"
   >
     <div class="sm:w-[350px] w-[300px] h-[90%] cursor-pointer p-6">
       <p class="sm:text-2xl text-lg font-bold pb-8">Validation Tracker</p>
