@@ -8,8 +8,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   plugins: [createPersistedState()],
   state: {
-    userProfile: "",
-    form: "",
+    userProfile: null,
+    
   },
   getters: {
     getCurrentUser: (state) => state.userProfile,
@@ -25,7 +25,7 @@ export default new Vuex.Store({
   },
   mutations: {
     UPDATE_USER(state, data) {
-      state.form = data;
+      state.userProfile = data;
     },
     FORM_DATA(state, data) {
       state.form = data;

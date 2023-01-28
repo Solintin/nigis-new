@@ -180,6 +180,7 @@ export default {
             console.log(res.data);
             const { user } = res.data;
             setTimeout(() => {
+              this.$store.dispatch("currentUser", res.data.data);
               this.$router.push("/form");
 
               this.submitStatus = "OK";

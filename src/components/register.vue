@@ -218,7 +218,7 @@ export default {
             console.log(res);
             setTimeout(() => {
               this.$router.push("/welcome");
-              this.$store.dispatch("currentUser", this.registrationData);
+              this.$store.dispatch("currentUser", res.data.data);
 
               this.submitStatus = "OK";
             }, 500);
