@@ -72,7 +72,7 @@
                 ><b>Birth Certificate</b></label
               >
               <input
-                @change="handleFilesUpdate(birth, $event)"
+                @change="handleContentUpload('birth', $event)"
                 class="block form__input"
                 type="file"
                 name="birth"
@@ -292,10 +292,11 @@
                   ><b>Reg. Certificate</b></label
                 >
                 <input
-                  @change="handleFilesUpdate(regCertificate, $event)"
+                  @change="handleContentUpload('regCertificate', $event)"
                   class="block form__input"
                   type="file"
                   name="regCert"
+                  accept="image/*"
                 />
               </div>
               <div class="error text-sm" v-if="isSizeRange">
@@ -464,6 +465,7 @@
 <script>
 /* eslint-disable */
 import { validationMixin } from "vuelidate";
+import * as filestack from "filestack-js";
 import {
   required,
   minLength,
@@ -499,6 +501,8 @@ export default {
       landPurpose: "",
       isSizeRange: false,
       submitStatus: null,
+      loading: false,
+      filestackApiKey: "Ac2jWdyDbSxi9LWXS4uMpz",
     };
   },
   validations: {
@@ -566,6 +570,24 @@ export default {
           this.toggleForm();
         }, 500);
       }
+    },
+    async handleContentUpload(model, event) {
+      const file = event.target.files[0];
+      console.log(file);
+      // const formData = new FormData();
+      // formData.append("image", file);
+      let fileObject = new File([file], "file.png", {
+        type: "image/jpeg",
+      });
+      this.loading = true;
+
+      const client = filestack.init(this.filestackApiKey);
+      await client.upload(fileObject).then((data) => {
+        console.log(data.url);
+        this.loading = false;
+        console.log("file Taken successfully");
+        this[model] = data.url;
+      });
     },
   },
 };

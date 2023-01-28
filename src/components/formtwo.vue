@@ -13,20 +13,12 @@
             <label
               class="block form__label font-thin text-sm sm:text-lg text-zinc-800"
               for="age"
-              :class="
-                !$v.landSize.required && $v.landSize.$dirty
-                  ? 'text-red-600'
-                  : ''
-              "
+              :class="!$v.landSize.required && $v.landSize.$dirty ? 'text-red-600' : ''"
               ><b>Size of Land e.g 1 hectare</b></label
             >
             <input
               @change="handleUpdate(landSize, $event)"
-              :class="
-                !$v.landSize.required && $v.landSize.$dirty
-                  ? 'border-red-600'
-                  : ''
-              "
+              :class="!$v.landSize.required && $v.landSize.$dirty ? 'border-red-600' : ''"
               class="block form__input w-[50%] border-2 focus:border-gray-700 hover:border-gray-700 rounded-xl focus:outline-none h-10 sm:h-12 px-2"
               type="text"
               placeholder="e.g 28"
@@ -93,20 +85,12 @@
         <div>
           <label class="container sm:text-lg text-sm mr-6 uppercase"
             >Yes
-            <input
-              type="checkbox"
-              @click="toggleCheckbox"
-              :checked="!isChecked"
-            />
+            <input type="checkbox" @click="toggleCheckbox" :checked="!isChecked" />
             <span class="checkmark"></span>
           </label>
           <label class="container sm:text-lg text-sm uppercase"
             >No
-            <input
-              type="checkbox"
-              @click="toggleCheckbox"
-              :checked="isChecked"
-            />
+            <input type="checkbox" @click="toggleCheckbox" :checked="isChecked" />
             <span class="checkmark"></span>
           </label>
         </div>
@@ -160,9 +144,7 @@
           </div>
         </div>
 
-        <p class="font-semibold">
-          Is the land under-developed? if yes select "YES"
-        </p>
+        <p class="font-semibold">Is the land under-developed? if yes select "YES"</p>
         <div>
           <label class="container sm:text-lg text-sm mr-6 uppercase"
             >Yes
@@ -192,8 +174,7 @@
                   : ''
               "
             >
-              State estimate value of improvements offered and time required for
-              erection
+              State estimate value of improvements offered and time required for erection
             </p>
             <textarea
               @change="handleUpdate(nodevelopedDesc, $event)"
@@ -209,17 +190,12 @@
         </div>
         <!---->
         <p class="font-semibold">
-          Is the land required in connection with minning leases? if yes select
-          "YES"
+          Is the land required in connection with minning leases? if yes select "YES"
         </p>
         <div>
           <label class="container sm:text-lg text-sm mr-6 uppercase"
             >Yes
-            <input
-              type="checkbox"
-              @click="toggleLeaseBox"
-              :checked="!isLease"
-            />
+            <input type="checkbox" @click="toggleLeaseBox" :checked="!isLease" />
             <span class="checkmark"></span>
           </label>
           <label class="container sm:text-lg text-sm uppercase"
@@ -241,9 +217,7 @@
               >
                 <p
                   :class="
-                    !$v.expiryDate.required && $v.expiryDate.$dirty
-                      ? 'text-red-600'
-                      : ''
+                    !$v.expiryDate.required && $v.expiryDate.$dirty ? 'text-red-600' : ''
                   "
                 >
                   Date of expiry of mining leases
@@ -286,18 +260,14 @@
                 class="block form__label font-thin text-sm sm:text-lg text-zinc-800"
                 for="length"
                 :class="
-                  !$v.termLength.required && $v.termLength.$dirty
-                    ? 'text-red-600'
-                    : ''
+                  !$v.termLength.required && $v.termLength.$dirty ? 'text-red-600' : ''
                 "
                 ><b>Length of Term Required for Lease(in years)</b></label
               >
               <input
                 @change="handleUpdate(termLength, $event)"
                 :class="
-                  !$v.termLength.required && $v.termLength.$dirty
-                    ? 'border-red-600'
-                    : ''
+                  !$v.termLength.required && $v.termLength.$dirty ? 'border-red-600' : ''
                 "
                 class="block form__input w-[50%] border-2 focus:border-gray-700 hover:border-gray-700 rounded-xl focus:outline-none h-12 px-2"
                 type="number"
@@ -332,9 +302,9 @@
                   class="block form__label font-thin text-sm sm:text-lg text-zinc-800 md:w-3/4"
                   for=""
                   ><b
-                    >Submit development proposals, feasibility studies of the
-                    proposed industry and a letter of clearance from the
-                    ministry of trade and industry</b
+                    >Submit development proposals, feasibility studies of the proposed
+                    industry and a letter of clearance from the ministry of trade and
+                    industry</b
                   ></label
                 >
                 <input
@@ -400,22 +370,17 @@
             class="foot-input mx-4"
             v-model="deposited"
             name="deposit"
-            :class="
-              !$v.deposited.required && $v.deposited.$dirty
-                ? 'border-red-600'
-                : ''
-            "
+            :class="!$v.deposited.required && $v.deposited.$dirty ? 'border-red-600' : ''"
           />
           for <input type="text" class="mx-4 foot-input" /> use
         </div>
 
         <div>
           <label class="container sm:text-lg text-sm mr-6 leading-10">
-            I agree to forfeit fifty percent (50%) of this fees (where
-            applicable) subsequently paid if i withdrawn my applicattion for
-            reason other than death, bankruptcy or other extenuating
-            circumstances which occur between acceptance of offer/allocation and
-            final issue of the Certificate of Occupancy
+            I agree to forfeit fifty percent (50%) of this fees (where applicable)
+            subsequently paid if i withdrawn my applicattion for reason other than death,
+            bankruptcy or other extenuating circumstances which occur between acceptance
+            of offer/allocation and final issue of the Certificate of Occupancy
             <input
               type="checkbox"
               @click="toggleAgreement"
@@ -430,9 +395,8 @@
         <!---->
         <div>
           <label class="container sm:text-lg text-sm mr-6 leading-10">
-            I hereby declare that all answer to the question listed above and
-            fact given by me in this form and the annexure hereto are true and
-            complete
+            I hereby declare that all answer to the question listed above and fact given
+            by me in this form and the annexure hereto are true and complete
             <input
               type="checkbox"
               @click="toggleDeclaration"
@@ -460,10 +424,11 @@
                 ><b>Attach A Signature</b></label
               >
               <input
-                @change="handleFilesUpdate(signature, $event)"
+                @change="handleContentUpload('signature', $event)"
                 class="block form__input"
                 type="file"
                 name=""
+                accept="image/*"
                 required
               />
             </div>
@@ -482,16 +447,15 @@
           Previous
         </button>
       </div>
-      <div
-        class="absolute top-0 flex flex-col w-2/4 sm:w-1/4 space-y-6 right-0"
-      >
+      <div class="absolute top-0 flex flex-col w-2/4 sm:w-1/4 space-y-6 right-0">
         <button
           @click.prevent="submit"
           class="submit bg-white border border-gray-700 text-sm sm:text-xl px-6 sm:px-8 py-3 hover:bg-[#0c8824] hover:border-0 rounded-2xl hover:text-white text-gray-700 font-semibold mx-auto"
           type="submit"
           :disabled="submitStatus === 'PENDING'"
         >
-          Submit
+          <span v-if="loading"> Uploading... </span>
+          <span v-else>Submit </span>
         </button>
         <p
           class="typo__p sm:text-sm text-center text-[12px]"
@@ -523,6 +487,7 @@ import { required } from "vuelidate/lib/validators";
 import DatePicker from "vue2-datepicker";
 import "vue2-datepicker/index.css";
 import { mapGetters } from "vuex";
+import * as filestack from "filestack-js";
 
 export default {
   name: "FormTwo",
@@ -561,6 +526,9 @@ export default {
       submitStatus: null,
       signature: "",
       agreed: "",
+      loading: false,
+      filestackApiKey: "Ac2jWdyDbSxi9LWXS4uMpz",
+
     };
   },
   validations: {
@@ -629,7 +597,24 @@ export default {
     toggleEstate() {
       this.isEstate = !this.isEstate;
     },
+    async handleContentUpload(model, event) {
+      const file = event.target.files[0];
+      console.log(file);
+      // const formData = new FormData();
+      // formData.append("image", file);
+      let fileObject = new File([file], "file.png", {
+        type: "image/jpeg",
+      });
+      this.loading = true;
 
+      const client = filestack.init(this.filestackApiKey);
+      await client.upload(fileObject).then((data) => {
+        console.log(data.url);
+        this.loading = false;
+        console.log("file Taken successfully");
+        this[model] = data.url;
+      });
+    },
     submit() {
       this.$v.$touch();
 
