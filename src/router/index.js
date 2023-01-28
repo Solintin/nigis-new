@@ -6,6 +6,8 @@ import Register from  "@/views/registerview.vue";
 import FormPage from "@/views/form.vue";
 import TrackerPage from "@/views/tracker.vue";
 import WelcomePage from "@/views/welcome.vue";
+import submissionPage from "@/views/submission.vue"
+import submissionPageDetails from "@/views/submissionDetails.vue";
 
 
 
@@ -39,6 +41,18 @@ const routes = [
     path: "/welcome",
     name: "WelcomePage",
     component: WelcomePage,
+   
+  },
+  {
+    path: "/submission",
+    name: "submissionPage",
+    component: submissionPage,
+   
+  },
+  {
+    path: "/submission-details/:id",
+    name: "submissionPageDetails",
+    component: submissionPageDetails,
    
   },
 

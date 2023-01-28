@@ -173,26 +173,20 @@ export default {
           password: this.password,
         };
         axios
-          .post("auth/login",
-            this.logInDetail
-          )
+          .post("auth/login", this.logInDetail)
           .then((res) => {
-            this.sent = res;
             console.log(res.data);
-            const { user } = res.data;
-            setTimeout(() => {
-              this.$store.dispatch("currentUser", user);
-            
+            const { stage, role } = res.data.user;
+            this.$store.dispatch("currentUser", res.data.user);
 
-              if (user.stage == 0) {
-                this.$router.push("/welcome")
-              }
-              else {
-                
-              }
+            if (role === "user" && stage == 0) {
+              this.$router.push("/welcome");
+            }
+            if (role === "admin") {
+              this.$router.push("/submission");
+            }
 
-              this.submitStatus = "OK";
-            }, 500);
+            this.submitStatus = "OK";
           })
           .catch((error) => {
             this.error = error.response.data.msg;

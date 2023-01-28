@@ -64,7 +64,7 @@
             </div>
           </div>
           <!--Birth Certificate-->
-          <div class="lg:col-span-3">
+          <div class="lg:col-span-3 overflow-hidden">
             <div class="form-group space-y-3">
               <label
                 class="block form__label font-thin text-sm sm:text-lg text-zinc-800"
@@ -73,7 +73,7 @@
               >
               <input
                 @change="handleContentUpload('birth', $event)"
-                class="block form__input"
+                class="block form__input truncate"
                 type="file"
                 name="birth"
                 required
@@ -332,6 +332,7 @@
                   class="block form__input input-field"
                   type="number"
                   name="regnos"
+                  v-model="regNo"
                 />
               </div>
             </div>
@@ -348,6 +349,7 @@
                   class="block form__input input-field"
                   type="number"
                   name="act"
+                  v-model="regYear"
                 />
               </div>
             </div>
@@ -372,6 +374,7 @@
                   class="block form__input input-field"
                   type="text"
                   name=""
+                  v-model="attorneyName"
                 />
               </div>
             </div>
@@ -388,6 +391,7 @@
                   class="block form__input input-field"
                   type="text"
                   name=""
+                  v-model.trim="attorneyAddress"
                 />
               </div>
             </div>

@@ -217,12 +217,9 @@ export default {
           .then((res) => {
             this.sent = res;
             console.log(res);
-            setTimeout(() => {
               this.$router.push("/welcome");
               this.$store.dispatch("currentUser", res.data.data);
-
               this.submitStatus = "OK";
-            }, 500);
           })
           .catch((error) => {
             this.error = error.response.data.msg;
