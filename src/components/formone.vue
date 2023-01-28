@@ -101,7 +101,7 @@
                   !$v.gsm.required && $v.gsm.$dirty ? 'border-red-600' : ''
                 "
                 class="block form__input input-field"
-                type="tel"
+                type="number"
                 placeholder="091XXXXXXX"
                 name="phone-no"
                 v-model="gsm"
@@ -470,6 +470,7 @@ import {
   maxLength,
   email,
 } from "vuelidate/lib/validators";
+import { mapGetters } from "vuex";
 
 export default {
   name: "FormOne",
@@ -478,6 +479,7 @@ export default {
 
   data() {
     return {
+      getFormData: null,
       occupation: "",
       post: "",
       nation: "",
@@ -533,6 +535,9 @@ export default {
       email,
     },
   },
+  computed: {
+    ...mapGetters["getCurrentUser"],
+  },
   methods: {
     submit() {
       this.$v.$touch();
@@ -541,6 +546,21 @@ export default {
       } else {
         // do your submit logic here
         this.submitStatus = "PENDING";
+        this.getFormData = {
+          name: this.name,
+          email: this.email,
+          age: this.age,
+          tel: this.gsm,
+          post: this.post,
+          nation: this.nation,
+          origin: this.occupation,
+          bizRegistration: this.bizRegistration,
+          regNo: this.regNo,
+          regYear: this.regYear,
+          attorneyAddress: this.attorneyAddress,
+          attorneyName: this.attorneyName,
+          landPurpose: this.landPurpose,
+        };
         setTimeout(() => {
           this.submitStatus = "OK";
           this.toggleForm();

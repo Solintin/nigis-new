@@ -5,6 +5,7 @@ import LoginPage from "@/views/loginview.vue";
 import Register from  "@/views/registerview.vue";
 import FormPage from "@/views/form.vue";
 import TrackerPage from "@/views/tracker.vue";
+import WelcomePage from "@/views/welcome.vue";
 
 
 
@@ -33,7 +34,14 @@ const routes = [
     name: "TrackerPage",
     component: TrackerPage,
 
-  }
+  },
+  {
+    path: "/welcome",
+    name: "WelcomePage",
+    component: WelcomePage,
+   
+  },
+
 ];
 
 const router = new VueRouter({

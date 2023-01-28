@@ -522,6 +522,7 @@ import { validationMixin } from "vuelidate";
 import { required } from "vuelidate/lib/validators";
 import DatePicker from "vue2-datepicker";
 import "vue2-datepicker/index.css";
+import { mapGetters } from "vuex";
 
 export default {
   name: "FormTwo",
@@ -553,7 +554,7 @@ export default {
       plotNo: "",
       streetNo: "",
       blockNo: "",
-
+      fullForm: null,
       landSize: "",
       landPurpose: "",
       isSizeRange: false,
@@ -573,7 +574,6 @@ export default {
     termLength: {
       required,
     },
-
     landSize: {
       required,
     },
@@ -589,6 +589,9 @@ export default {
     deposited: {
       required,
     },
+  },
+  computed: {
+    ...mapGetters[("getCurrentUser", "getFormData")],
   },
   created() {
     const dt = new Date();
@@ -635,6 +638,20 @@ export default {
       } else {
         // do your submit logic here
         this.submitStatus = "PENDING";
+        this.fullForm = {
+          form1: this.getFormData,
+          form2: {
+            developedDesc: this.developedDesc,
+            nodevelopedDesc: this.nodevelopedDesc,
+            plotNo: this.plotNo,
+            streetNo: this.streetNo,
+            blockNo: this.blockNo,
+            landSize: this.landSize,
+            termLength: this.termLength,
+            expiryDate: this.expiryDate,
+          },
+        };
+
         setTimeout(() => {
           this.$router.push("/tracker");
 

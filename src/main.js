@@ -7,6 +7,8 @@ import "./assets/styles.css";
 import axios from "axios";
 import VueAxios from "vue-axios";
 import Vuelidate from "vuelidate";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 Vue.use(Vuelidate);
 Vue.use(VueAxios, axios);
@@ -17,4 +19,7 @@ new Vue({
   router,
   store,
   render: (h) => h(App),
+  mounted() {
+    AOS.init()
+  },
 }).$mount("#app");

@@ -9,7 +9,9 @@
         <img class="mx-auto w-16 h-16" src="./nigislogo.png" alt="nigislogo" />
 
         <div class="block p-3 space-y-3 rounded-xl border-2">
-          <h3 class="sm:text-xl text-lg text-center font-semibold p-4">Log in</h3>
+          <h3 class="sm:text-xl text-lg text-center font-semibold p-4">
+            Log in
+          </h3>
 
           <div class="space-y-3">
             <div
@@ -95,6 +97,12 @@
             >
               Sending...
             </p>
+            <p
+              class="text-red-600 text-center text-sm"
+              v-if="submitStatus === 'INVALID'"
+            >
+              {{ error }}
+            </p>
           </div>
         </div>
       </div>
@@ -131,6 +139,9 @@ export default {
       submitStatus: null,
       password: "",
       registrationData: null,
+      logInDetail: null,
+      error: null,
+      sent: "",
     };
   },
   validations: {
@@ -155,17 +166,38 @@ export default {
       } else {
         // do your submit logic here
         this.submitStatus = "PENDING";
-        setTimeout(() => {
-          this.$router.push("/form");
+        this.logInDetail = {
+        email: this.email,
+        password: this.password,
+      };
+        this.axios
+          .post(
+            "https://nigis.onrender.com/api/v1/auth/login",
+            this.logInDetail
+          )
+          .then((res) => {
+            this.sent = res;
+            console.log(res.data);
+            const { user } = res.data;
+            setTimeout(() => {
+              this.$router.push("/form");
 
-          this.submitStatus = "OK";
-        }, 500);
+              this.submitStatus = "OK";
+            }, 500);
+          })
+          .catch((error) => {
+            this.error = error.response.data.msg;
+            //console.log(error.response.data.msg);
+            this.submitStatus = "INVALID";
+          });
       }
     },
 
     handleUpdate(model, event) {
       this[model] = event.target.value;
       console.log(this[model]);
+      
+      
     },
   },
 };
