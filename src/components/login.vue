@@ -182,9 +182,11 @@ export default {
             if (role === "user" && stage == 0) {
               this.$router.push("/welcome");
             }
-            if (role === "admin") {
+            else if (role === "admin") {
               this.$router.push("/submission");
-            }
+            } else {
+                this.$router.push("/tracker")
+              }
 
             this.submitStatus = "OK";
           })
