@@ -128,6 +128,8 @@
 import { validationMixin } from "vuelidate";
 import { required, minLength, email } from "vuelidate/lib/validators";
 
+import axios from "@/utils/useAxios";
+
 export default {
   name: "LogIn",
   mixins: [validationMixin],
@@ -170,9 +172,8 @@ export default {
           email: this.email,
           password: this.password,
         };
-        this.axios
-          .post(
-            "https://nigis.onrender.com/api/v1/auth/login",
+        axios
+          .post("auth/login",
             this.logInDetail
           )
           .then((res) => {
@@ -181,9 +182,14 @@ export default {
             const { user } = res.data;
             setTimeout(() => {
               this.$store.dispatch("currentUser", user);
-              user.stage == 0
-                ? this.$router.push("/welcome")
-                : this.$router.push("/form");
+            
+
+              if (user.stage == 0) {
+                this.$router.push("/welcome")
+              }
+              else {
+                
+              }
 
               this.submitStatus = "OK";
             }, 500);

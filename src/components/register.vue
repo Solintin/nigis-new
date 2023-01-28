@@ -158,6 +158,7 @@
 /* eslint-disable*/
 import { validationMixin } from "vuelidate";
 import { required, minLength, email } from "vuelidate/lib/validators";
+import axios from "@/utils/useAxios";
 
 export default {
   name: "RegisterPage",
@@ -208,9 +209,9 @@ export default {
           password: this.password,
           role: "user",
         };
-        this.axios
+        axios
           .post(
-            "https://nigis.onrender.com/api/v1/auth/register",
+            "auth/register",
             this.registrationData
           )
           .then((res) => {
