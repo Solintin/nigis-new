@@ -128,6 +128,8 @@
 import { validationMixin } from "vuelidate";
 import { required, minLength, email } from "vuelidate/lib/validators";
 
+import axios from "@/utils/useAxios";
+
 export default {
   name: "LogIn",
   mixins: [validationMixin],
@@ -167,12 +169,11 @@ export default {
         // do your submit logic here
         this.submitStatus = "PENDING";
         this.logInDetail = {
-        email: this.email,
-        password: this.password,
-      };
-        this.axios
-          .post(
-            "https://nigis.onrender.com/api/v1/auth/login",
+          email: this.email,
+          password: this.password,
+        };
+        axios
+          .post("auth/login",
             this.logInDetail
           )
           .then((res) => {
@@ -180,8 +181,15 @@ export default {
             console.log(res.data);
             const { user } = res.data;
             setTimeout(() => {
-              this.$store.dispatch("currentUser", res.data.data);
-              this.$router.push("/form");
+              this.$store.dispatch("currentUser", user);
+            
+
+              if (user.stage == 0) {
+                this.$router.push("/welcome")
+              }
+              else {
+                
+              }
 
               this.submitStatus = "OK";
             }, 500);
@@ -197,8 +205,6 @@ export default {
     handleUpdate(model, event) {
       this[model] = event.target.value;
       console.log(this[model]);
-      
-      
     },
   },
 };

@@ -623,18 +623,18 @@ export default {
       } else {
         // do your submit logic here
         this.submitStatus = "PENDING";
+    
         this.fullForm = {
-          form1: this.getFormData,
-          form2: {
+          ...this.getFormData,
             developedDesc: this.developedDesc,
             nodevelopedDesc: this.nodevelopedDesc,
-            plotNo: this.plotNo,
-            streetNo: this.streetNo,
-            blockNo: this.blockNo,
-            landSize: this.landSize,
+            plot_number: this.plotNo,
+            street_number: this.streetNo,
+            block_number: this.blockNo,
+            land_size: this.landSize,
             termLength: this.termLength,
             expiryDate: this.expiryDate,
-          },
+        
         };
 
         setTimeout(() => {
