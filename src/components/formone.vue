@@ -540,7 +540,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters["getCurrentUser"],
+    ...mapGetters(["getCurrentUser"])
   },
   methods: {
     submit() {

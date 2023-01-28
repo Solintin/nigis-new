@@ -559,7 +559,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters[("getCurrentUser", "getFormData")],
+    ...mapGetters(["getCurrentUser", "getFormData"])
   },
   created() {
     const dt = new Date();

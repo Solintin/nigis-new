@@ -173,22 +173,18 @@ export default {
           password: this.password,
         };
         axios
-          .post("auth/login",
-            this.logInDetail
-          )
+          .post("auth/login", this.logInDetail)
           .then((res) => {
             this.sent = res;
             console.log(res.data);
             const { user } = res.data;
             setTimeout(() => {
               this.$store.dispatch("currentUser", user);
-            
 
               if (user.stage == 0) {
                 this.$router.push("/welcome")
-              }
-              else {
-                
+              } else {
+                this.$router.push("/tracker")
               }
 
               this.submitStatus = "OK";
