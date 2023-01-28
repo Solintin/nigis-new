@@ -9,6 +9,7 @@ export default new Vuex.Store({
   plugins: [createPersistedState()],
   state: {
     userProfile: null,
+    form:null,
     
   },
   getters: {

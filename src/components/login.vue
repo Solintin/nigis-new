@@ -167,9 +167,9 @@ export default {
         // do your submit logic here
         this.submitStatus = "PENDING";
         this.logInDetail = {
-        email: this.email,
-        password: this.password,
-      };
+          email: this.email,
+          password: this.password,
+        };
         this.axios
           .post(
             "https://nigis.onrender.com/api/v1/auth/login",
@@ -180,8 +180,10 @@ export default {
             console.log(res.data);
             const { user } = res.data;
             setTimeout(() => {
-              this.$store.dispatch("currentUser", res.data.data);
-              this.$router.push("/form");
+              this.$store.dispatch("currentUser", user);
+              user.stage == 0
+                ? this.$router.push("/welcome")
+                : this.$router.push("/form");
 
               this.submitStatus = "OK";
             }, 500);
@@ -197,8 +199,6 @@ export default {
     handleUpdate(model, event) {
       this[model] = event.target.value;
       console.log(this[model]);
-      
-      
     },
   },
 };

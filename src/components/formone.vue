@@ -547,20 +547,23 @@ export default {
         // do your submit logic here
         this.submitStatus = "PENDING";
         this.getFormData = {
-          name: this.name,
+          fullname: this.name,
           email: this.email,
+          state:this.origin,
           age: this.age,
-          tel: this.gsm,
-          post: this.post,
-          nation: this.nation,
-          origin: this.occupation,
-          bizRegistration: this.bizRegistration,
-          regNo: this.regNo,
-          regYear: this.regYear,
-          attorneyAddress: this.attorneyAddress,
-          attorneyName: this.attorneyName,
+          phone: this.gsm,
+          post_held: this.post,
+          nationality: this.nation,
+          occupation: this.occupation,
+          business_name: this.bizRegistration,
+          business_number: this.regNo,
+          business_reg_year: this.regYear,
+          business_reg_agent_address : this.attorneyAddress,
+          business_reg_agent_name: this.attorneyName,
           landPurpose: this.landPurpose,
+          
         };
+        this.$store.dispatch("formData", this.getFormData);
         setTimeout(() => {
           this.submitStatus = "OK";
           this.toggleForm();
