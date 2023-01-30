@@ -7,6 +7,7 @@ import FormPage from "@/views/form.vue";
 import TrackerPage from "@/views/tracker.vue";
 import WelcomePage from "@/views/welcome.vue";
 import submissionPage from "@/views/submission.vue"
+import AllSubmissionPage from "@/views/submissionall.vue"
 import submissionPageDetails from "@/views/submissionDetails.vue";
 
 
@@ -47,6 +48,12 @@ const routes = [
     path: "/submission",
     name: "submissionPage",
     component: submissionPage,
+   
+  },
+  {
+    path: "/allsubmission",
+    name: "submissionPage",
+    component: AllSubmissionPage,
    
   },
   {
