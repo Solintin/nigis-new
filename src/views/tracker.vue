@@ -369,16 +369,18 @@
       <!---->
       <div class="none py-10">
         <!-- Certificates -->
-        <div v-if="data?.CofO && stage === 8">
+        <div v-if="stage === 8">
           <div class="text-center font-bold text-black text-2xl mt-5">
             Congratulations!!!
           </div>
-          <p class="text-center mb-1">Your C of O Certificate is Finally Ready</p>
+          <p class="text-center mb-1">
+            Your C of O Certificate is Finally Ready
+          </p>
           <div class="w-11/12 mx-auto h-[300px]">
-            <img class="w-full h-full" :src="data.CofO" />
+            <img class="w-full h-full" src="/cofo.jpeg" />
           </div>
           <div class="flex justify-center">
-            <a 
+            <a
               download="C of O"
               href="/cofo.jpeg"
               class="mt-4 text-blue-500 text-2xl font-bold"
