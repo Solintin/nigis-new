@@ -1,10 +1,13 @@
 <!-- eslint-disable -->
 <template>
   <div class="w-full bg-white fixed inset-0 p-4">
-    <div class="p-2 mt-8 mb-1 rounded hidden md:grid grid-cols-2 items-center">
-      <div class="font-bold text-lg text-black">KYC</div>
-    </div>
-    <div class="md:hidden flex text-black font-bold text-base mb-2 mt-10">
+    <img
+      class="mx-auto w-20 h-20"
+      src="@/assets/nigislogo.png"
+      alt="nigislogo"
+    />
+
+    <div class="flex text-black font-bold text-base mb-2 mt-10">
       Level {{ getCurrentUser.adminLevel }} Users
     </div>
 

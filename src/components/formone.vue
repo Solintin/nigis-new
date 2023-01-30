@@ -36,7 +36,7 @@
         </div>
         <!--Validate Age-->
 
-        <div class="grid grid-cols-1 lg:grid-cols-10 sm:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 lg:grid-cols-4 sm:grid-cols-2 gap-6">
           <!--Age-->
           <div class="age">
             <div
@@ -64,7 +64,7 @@
             </div>
           </div>
           <!--Birth Certificate-->
-          <div class="lg:col-span-3 overflow-hidden">
+          <div class="overflow-hidden">
             <div class="form-group space-y-3">
               <label
                 class="block form__label font-thin text-sm sm:text-lg text-zinc-800"
@@ -84,7 +84,7 @@
             </div>
           </div>
           <!--Phone Number-->
-          <div class="phone lg:col-span-3">
+          <div class="phone">
             <div
               class="form-group space-y-3"
               :class="{ 'form-group--error': $v.gsm.$error }"
@@ -117,7 +117,7 @@
             </div>
           </div>
           <!--Email Address-->
-          <div class="ema lg:col-span-3">
+          <div class="ema ">
             <div
               class="form-group space-y-3"
               :class="{ 'form-group--error': $v.email.$error }"
@@ -147,7 +147,7 @@
             </div>
           </div>
         </div>
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid lg:grid-cols-4 gap-6">
           <div class="nations">
             <div
               class="form-group space-y-3"
@@ -562,6 +562,8 @@ export default {
           phone: this.gsm,
           post_held: this.post,
           nationality: this.nation,
+          birth_cert: this.birth,
+          business_cert: this.regCertificate,
           occupation: this.occupation,
           business_name: this.bizRegistration,
           business_number: this.regNo,

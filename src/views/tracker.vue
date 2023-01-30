@@ -3,11 +3,18 @@
   <div
     class="w-full h-full text-sm sm:text-lg inset-0 fixed bg-white overflow-auto p-2 sm:p-6"
   >
-    <div class="sm:w-[350px] z-40 w-[300px] h-[90%] cursor-pointer p-6">
+    <div class="h-[90%] cursor-pointer p-6">
       <p class="sm:text-2xl text-lg font-bold pb-8">Validation Tracker</p>
 
       <p v-if="isRejected" class="text-sm sm:text-lg text-red-500 pb-4">
-        Incorrect/Incomplete information has been rejected, click the red box
+        Incorrect/Incomplete information has been rejected, click
+        <button
+          @click="showErrorMessage"
+          class="bg-gray-300 px-1 border rounded text-black"
+        >
+          Here
+        </button>
+        for more info...
       </p>
       <div class="flex flex-col">
         <div class="flex items-center">
@@ -360,7 +367,26 @@
       </div>
 
       <!---->
-      <div class="none pb-10"></div>
+      <div class="none py-10">
+        <!-- Certificates -->
+        <div v-if="data?.CofO && stage === 8">
+          <div class="text-center font-bold text-black text-2xl mt-5">
+            Congratulations!!!
+          </div>
+          <p class="text-center mb-1">Your C of O Certificate is Finally Ready</p>
+          <div class="w-11/12 mx-auto h-[300px]">
+            <img class="w-full h-full" :src="data.CofO" />
+          </div>
+          <div class="flex justify-center">
+            <a 
+              download="C of O"
+              href="/cofo.jpeg"
+              class="mt-4 text-blue-500 text-2xl font-bold"
+              >Download</a
+            >
+          </div>
+        </div>
+      </div>
     </div>
     <div class="fixed -z-40 m-auto inset-0 w-1/2 h-4/5">
       <img
@@ -368,6 +394,7 @@
         src="../assets/images/nigislogo.png"
       />
     </div>
+
     <!---Rejection message-->
     <div
       @click.self="showErrorMessage"
@@ -408,12 +435,13 @@ export default {
       message: "",
       noMessage: true,
       isRejected: false,
+      data: null,
     };
   },
   computed: {
     ...mapGetters(["getCurrentUser"]),
   },
-  mounted () {
+  mounted() {
     this.getUserStage();
   },
 
@@ -423,19 +451,20 @@ export default {
         .get(`requirement/tracker/${this.getCurrentUser._id}`)
         .then((response) => {
           const { data } = response.data;
+          this.data = data;
+          console.log(this.data.CofO);
           console.log(data);
           this.numberAllocated = data.numberAllocated;
           this.stage = data.stage;
           this.reject = parseInt(data.reject);
           this.message = data.message;
-          if(this.message !== "") {
+          if (this.message !== "") {
             this.isRejected = !this.isRejected;
           }
         });
     },
     checkStage(stage, currentStage) {
       if (stage >= currentStage && this.reject == currentStage) {
-        
         return "#CC0000";
       } else if (stage >= currentStage) {
         return "#0c8824";

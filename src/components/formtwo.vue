@@ -672,6 +672,7 @@ export default {
           land_size: this.landSize,
           termLength: this.termLength,
           expiryDate: this.expiryDate,
+          signature: this.signature,
           user: this.getCurrentUser._id,
         };
         this.$router.push("/tracker");

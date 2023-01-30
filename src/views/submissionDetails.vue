@@ -160,6 +160,31 @@
         </div>
       </div>
 
+      <div v-if="user.birth_cert" class="p-4">
+        <p class="font-bold">Birth</p>
+        <img
+          :src="user.birth_cert"
+          class="rounded mt-5 h-[400px] w-[400px] object-cover"
+          alt=""
+        />
+      </div>
+      <div v-if="user.business_cert" class="p-4">
+        <p class="font-bold">Business Registration Cert</p>
+        <img
+          :src="user.business_cert"
+          class="rounded mt-5 h-[400px] w-[400px] object-cover"
+          alt=""
+        />
+      </div>
+      <div v-if="user.signature" class="p-4">
+        <p class="font-bold">Signature</p>
+        <img
+          :src="user.signature"
+          class="rounded mt-5 h-[400px] w-[400px] object-cover"
+          alt=""
+        />
+      </div>
+
       <div class="flex font-bold text-base bg-middey-dark text-white p-4">
         User Submisssion Status Action
       </div>
@@ -273,7 +298,7 @@ export default {
       const action = {
         userId: this.user.user,
         documentId: this.user._id,
-        message: this.message,
+        message: "",
         reject: "",
       };
       axiosInstance
