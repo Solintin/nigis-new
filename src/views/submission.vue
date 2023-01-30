@@ -63,7 +63,7 @@
             <td class="px-3 py-5 leading-5 whitespace-nowrap text-left">
               <router-link
                 :to="`/submission-details/${item._id}`"
-                class="flex justify-center items-center space-x-3 bg-[#0192ED] text-white px-2 py-3 rounded w-auto"
+                class="flex justify-center items-center space-x-3 bg-[#0c8824] text-white px-2 py-3 rounded w-auto"
               >
                 View user
               </router-link>
@@ -81,6 +81,7 @@
 </template>
 <!-- eslint-disable -->
 <script>
+/* eslint-disable */
 import ActionLoader from "../components/Loader.vue";
 import Spinner from "../components/Spinner.vue";
 import axiosInstance from "@/utils/useAxios.js";

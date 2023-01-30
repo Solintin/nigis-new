@@ -43,4 +43,8 @@ body {
 
   height: 100%;
 }
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
 </style>

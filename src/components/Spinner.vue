@@ -2,12 +2,14 @@
 <template>
   <div class="lds-hourglass"></div>
 </template>
-
+<!-- eslint-disable -->
 <script>
+/* eslint-disable */
 export default {};
 </script>
-
+<!-- eslint-disable -->
 <style>
+/* eslint-disable */
 .lds-hourglass {
   display: inline-block;
   position: relative;
@@ -22,8 +24,8 @@ export default {};
   height: 0;
   margin: 8px;
   box-sizing: border-box;
-  border: 32px solid green;
-  border-color: green transparent green transparent;
+  border: 32px solid #0c8824;
+  border-color: #0c8824 transparent #0c8824 transparent;
   animation: lds-hourglass 1.2s infinite;
 }
 @keyframes lds-hourglass {

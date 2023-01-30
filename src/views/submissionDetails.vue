@@ -187,7 +187,7 @@
         </button>
         <button
           @click="handleUserApprove"
-          class="flex justify-center items-center space-x-3 bg-green-500 text-white px-8 py-3 rounded w-auto"
+          class="flex justify-center items-center space-x-3 bg-[#0c8824] text-white px-8 py-3 rounded w-auto"
           :class="loading ? 'cursor-not-allowed' : ''"
           :disabled="loading"
         >
@@ -201,6 +201,7 @@
 </template>
 <!-- eslint-disable -->
 <script>
+/* eslint-disable */
 import ActionLoader from "../components/ActionLoader.vue";
 import Spinner from "../components/Spinner.vue";
 import axiosInstance from "@/utils/useAxios.js";

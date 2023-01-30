@@ -2,12 +2,14 @@
 <template>
   <div class="lds-hourloader"></div>
 </template>
-
+<!-- eslint-disable -->
 <script>
+/* eslint-disable */
 export default {};
 </script>
-
+<!-- eslint-disable -->
 <style>
+/* eslint-disable */
 .lds-hourloader {
   display: inline-block;
   position: relative;

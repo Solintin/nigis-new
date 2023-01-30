@@ -15,6 +15,7 @@
 </template>
 <!-- eslint-disable -->
 <style>
+/* eslint-disable */
 .loader {
   position: fixed;
   top: 0;
