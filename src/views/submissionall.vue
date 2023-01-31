@@ -8,7 +8,7 @@
     />
 
     <div class="flex text-black font-bold text-base mb-2 mt-10">
-      Level {{ getCurrentUser.adminLevel }} Users
+      All Applicants
     </div>
 
     <div

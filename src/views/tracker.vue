@@ -376,7 +376,7 @@
           <p class="text-center mb-1">
             Your C of O Certificate is Finally Ready
           </p>
-          <div class="w-11/12 mx-auto h-[300px]">
+          <div class="w-11/12 mx-auto h-full ">
             <img class="w-full h-full" src="/cofo.jpeg" />
           </div>
           <div class="flex justify-center">
@@ -454,7 +454,6 @@ export default {
         .then((response) => {
           const { data } = response.data;
           this.data = data;
-          console.log(this.data.CofO);
           console.log(data);
           this.numberAllocated = data.numberAllocated;
           this.stage = data.stage;
