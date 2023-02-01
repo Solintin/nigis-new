@@ -1,6 +1,6 @@
 <!-- eslint-disable -->
 <template>
-  <div class="w-full bg-white fixed inset-0 p-4">
+  <div class="w-full bg-white fixed inset-0 p-4 overflow-auto">
     <img
       class="mx-auto w-20 h-20"
       src="@/assets/nigislogo.png"
