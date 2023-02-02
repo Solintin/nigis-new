@@ -231,7 +231,7 @@
             :disabled="stage >= 5 && (reject !== 5 || reject == NaN)"
             class="p-1 rounded-md text-center capitalize text-white bg-[#ccc]"
           >
-            Calligraphy
+            Cartography
           </button>
         </div>
         <!--vertical line-->
