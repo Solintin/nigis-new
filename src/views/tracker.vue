@@ -55,7 +55,7 @@
             <span
               v-if="stage >= 1 && (reject !== 1 || reject == NaN)"
               class="absolute left-0 -bottom-6"
-              >NG/MN/{{ numberAllocated }}</span
+              >{{ numberAllocated }}</span
             >
           </div>
         </div>
