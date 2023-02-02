@@ -6,7 +6,11 @@
     >
       <!--Log in-->
       <div class="space-y-3">
-        <img class="mx-auto w-16 h-16" src="@/assets/nigislogo.png" alt="nigislogo" />
+        <img
+          class="mx-auto w-16 h-16"
+          src="@/assets/nigislogo.png"
+          alt="nigislogo"
+        />
 
         <div class="block p-3 space-y-3 rounded-xl border-2">
           <h3 class="sm:text-xl text-lg text-center font-semibold p-4">
@@ -155,6 +159,10 @@ export default {
       required,
       email,
     },
+  },
+  mounted() {
+    this.$store.dispatch("logout");
+    
   },
   methods: {
     toggleIsVisible() {
